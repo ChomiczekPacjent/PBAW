@@ -1,12 +1,20 @@
 <?php
+$conf->debug = true; # set true during development and use in your code (for instance check if true to send additional message)
 
-$conf->root_path = dirname(__FILE__);
-$conf->server_name = 'localhost:80';
-$conf->server_url = 'http://'.$conf->server_name;
-$conf->app_root = '/php_07_BD';
-$conf->app_url = $conf->server_url.$conf->app_root;
+# ---- Webapp location
+$conf->server_name = 'localhost';   # server address and port
+$conf->protocol = 'http';           # http or https
+$conf->app_root = '/Test/public';   # project subfolder in domain (relative to main domain)
 
-$conf->action_root = $conf->app_root.'/ctrl.php?action=';
-$conf->action_url = $conf->server_url.$conf->action_root;
+# ---- Database config - values required by Medoo
+$conf->db_type = 'mysql';
+$conf->db_server = 'localhost';
+$conf->db_name = 'Ventee';
+$conf->db_user = 'root';
+$conf->db_pass = '';
+$conf->db_charset = 'utf8';
 
-?>
+# ---- Database config - optional values
+$conf->db_port = '3306';
+#$conf->db_prefix = '';
+$conf->db_option = [ PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION ];
